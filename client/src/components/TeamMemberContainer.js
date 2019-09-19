@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import faker from 'faker';
 
@@ -15,6 +15,11 @@ const StyledTeamMemberContainerWrapper = styled.div`
 
 function TeamMemberContainer() {
   const [teamMembers, setTeamMembers] = useState(usersStub);
+  const [teamMemberToEdit, setTeamMemberToEdit] = useState();
+
+  useEffect(() => {
+    console.log(teamMemberToEdit);
+  }, [teamMemberToEdit]);
 
   const addNewTeamMember = teamMember => {
     const newTeamMember = {
@@ -25,13 +30,17 @@ function TeamMemberContainer() {
     setTeamMembers([...teamMembers, newTeamMember]);
   };
 
+  const editTeamMember = teamMember => {
+    setTeamMemberToEdit(teamMember);
+  };
+
   return (
     <StyledTeamMemberContainerWrapper>
       <div>
         <TeamMemberForm submitForm={addNewTeamMember} />
       </div>
       <div>
-        <TeamMemberList teamMembers={teamMembers} />
+        <TeamMemberList teamMembers={teamMembers} editTeamMember={editTeamMember} />
       </div>
     </StyledTeamMemberContainerWrapper>
   );
