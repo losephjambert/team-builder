@@ -16,6 +16,7 @@ const StyledTeamMemberContainerWrapper = styled.div`
 function TeamMemberContainer() {
   const [teamMembers, setTeamMembers] = useState(usersStub);
   const [teamMemberToEdit, setTeamMemberToEdit] = useState();
+  const [isEditing, setIsEditing] = useState(false);
 
   const addNewTeamMember = teamMember => {
     const newTeamMember = {
@@ -28,12 +29,13 @@ function TeamMemberContainer() {
 
   const editTeamMember = teamMember => {
     setTeamMemberToEdit(teamMember);
+    setIsEditing(!isEditing);
   };
 
   return (
     <StyledTeamMemberContainerWrapper>
       <div>
-        <TeamMemberForm submitForm={addNewTeamMember} teamMemberToEdit={teamMemberToEdit} />
+        <TeamMemberForm submitForm={addNewTeamMember} teamMemberToEdit={teamMemberToEdit} isEditing={isEditing} />
       </div>
       <div>
         <TeamMemberList teamMembers={teamMembers} editTeamMember={editTeamMember} />

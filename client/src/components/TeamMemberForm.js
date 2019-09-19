@@ -6,7 +6,7 @@ const emptyTeamMember = {
   role: '',
 };
 
-const TeamMemberForm = ({ submitForm, teamMemberToEdit }) => {
+const TeamMemberForm = ({ submitForm, teamMemberToEdit, isEditing }) => {
   const [teamMember, setTeamMember] = useState(emptyTeamMember);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const TeamMemberForm = ({ submitForm, teamMemberToEdit }) => {
         <label htmlFor='role'>Role</label>
         <input type='text' id='role' name='role' placeholder='Role' value={teamMember.role} onChange={handleChange} />
       </div>
-      <button type='submit'>Add Team Member</button>
+      <button type='submit'>{isEditing ? 'Edit Team Member' : 'Add Team Member'}</button>
     </form>
   );
 };
