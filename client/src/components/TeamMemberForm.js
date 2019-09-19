@@ -48,6 +48,7 @@ const TeamMemberForm = ({ submitForm, teamMemberToEdit, isEditing }) => {
         <input type='text' id='role' name='role' placeholder='Role' value={teamMember.role} onChange={handleChange} />
       </div>
       <button type='submit'>{isEditing ? 'Edit Team Member' : 'Add Team Member'}</button>
+      {isEditing && <button>Cancel Editing</button>}
     </form>
   );
 };
