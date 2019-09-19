@@ -4,13 +4,16 @@ import styled from 'styled-components';
 import TeamMemberList from './TeamMemberList';
 import TeamMemberForm from './TeamMemberForm';
 
+import teamMembersStub from '../api/stubData/teamMembersStub';
+const usersStub = teamMembersStub(5);
+
 const StyledTeamMemberContainerWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
 `;
 
 function TeamMemberContainer() {
-  const [teamMembers, setTeamMembers] = useState([]);
+  const [teamMembers, setTeamMembers] = useState(usersStub);
 
   const addNewTeamMember = teamMember => {
     const newTeamMember = {
