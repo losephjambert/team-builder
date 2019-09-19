@@ -15,7 +15,7 @@ function TeamMemberContainer() {
 
   return (
     <div>
-      <TeamMemberList />
+      <TeamMemberList teamMembers={teamMembers} />
       <TeamMemberForm submitForm={addNewTeamMember} />
     </div>
   );

@@ -1,10 +1,12 @@
 import React from "react";
 
-const TeamMember = props => {
+const TeamMember = ({ id, name, email, role }) => {
   return (
-    <div>
-      <li>TeamMember</li>
-    </div>
+    <li>
+      <h3>{name}</h3>
+      <p>{role}</p>
+      <p>{email}</p>
+    </li>
   );
 };
 
