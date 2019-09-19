@@ -6,7 +6,7 @@ const initialTeamMember = {
   role: ""
 };
 
-const TeamMemberForm = props => {
+const TeamMemberForm = ({ submitForm }) => {
   const [teamMember, setTeamMember] = useState(initialTeamMember);
 
   const handleChange = e => {
@@ -18,7 +18,7 @@ const TeamMemberForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // call function passed through props to add a new teamMember to the teamMemberList
+    submitForm(teamMember);
     setTeamMember(initialTeamMember);
   };
 

@@ -5,10 +5,18 @@ import TeamMemberForm from "./TeamMemberForm";
 function TeamMemberContainer() {
   const [teamMembers, setTeamMembers] = useState([]);
 
+  const addNewTeamMember = teamMember => {
+    const newTeamMember = {
+      ...teamMember,
+      id: Date.now()
+    };
+    setTeamMembers([...teamMembers, newTeamMember]);
+  };
+
   return (
     <div>
       <TeamMemberList />
-      <TeamMemberForm />
+      <TeamMemberForm submitForm={addNewTeamMember} />
     </div>
   );
 }
