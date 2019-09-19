@@ -1,6 +1,13 @@
-import React, { useState } from "react";
-import TeamMemberList from "./TeamMemberList";
-import TeamMemberForm from "./TeamMemberForm";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+import TeamMemberList from './TeamMemberList';
+import TeamMemberForm from './TeamMemberForm';
+
+const StyledTeamMemberContainerWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
 
 function TeamMemberContainer() {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -8,16 +15,20 @@ function TeamMemberContainer() {
   const addNewTeamMember = teamMember => {
     const newTeamMember = {
       ...teamMember,
-      id: Date.now()
+      id: Date.now(),
     };
     setTeamMembers([...teamMembers, newTeamMember]);
   };
 
   return (
-    <div>
-      <TeamMemberList teamMembers={teamMembers} />
-      <TeamMemberForm submitForm={addNewTeamMember} />
-    </div>
+    <StyledTeamMemberContainerWrapper>
+      <div>
+        <TeamMemberForm submitForm={addNewTeamMember} />
+      </div>
+      <div>
+        <TeamMemberList teamMembers={teamMembers} />
+      </div>
+    </StyledTeamMemberContainerWrapper>
   );
 }
 
