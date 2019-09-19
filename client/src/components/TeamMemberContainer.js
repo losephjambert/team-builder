@@ -6,7 +6,7 @@ import TeamMemberList from './TeamMemberList';
 import TeamMemberForm from './TeamMemberForm';
 
 import teamMembersStub from '../api/stubData/teamMembersStub';
-const usersStub = teamMembersStub(5);
+const usersStub = teamMembersStub(2);
 
 const StyledTeamMemberContainerWrapper = styled.div`
   display: grid;
