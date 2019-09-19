@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import faker from 'faker';
 
 import TeamMemberList from './TeamMemberList';
 import TeamMemberForm from './TeamMemberForm';
@@ -19,6 +20,7 @@ function TeamMemberContainer() {
     const newTeamMember = {
       ...teamMember,
       id: Date.now(),
+      image: faker.image.avatar(),
     };
     setTeamMembers([...teamMembers, newTeamMember]);
   };

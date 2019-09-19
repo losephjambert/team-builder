@@ -1,4 +1,4 @@
-var faker = require('faker');
+import faker from 'faker';
 
 const seed = count => {
   const users = [];
@@ -7,7 +7,7 @@ const seed = count => {
     let email = faker.internet.email();
     let name = `${faker.name.firstName()} ${faker.name.lastName()}`;
     let role = faker.random.word();
-    let id = count;
+    let id = faker.random.uuid();
     users.push({
       image,
       email,
